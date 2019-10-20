@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+textarea {
+  resize: none;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.text-right {
+  text-align: right;
+}

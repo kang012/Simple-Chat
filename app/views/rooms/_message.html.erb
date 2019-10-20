@@ -1,0 +1,7 @@
+<% if current_user == message.user_id%>
+  <div class="message-item text-right">
+<% else %>
+  <div class="message-item">
+<% end %>
+    <strong class="message-user"><%= message.author %>: </strong><span><%= message.content %></span>
+  </div>
