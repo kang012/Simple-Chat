@@ -1,0 +1,14 @@
+<%= link_to friendships_path(id: friendship.id), class: 'list-group-item' do %>
+  <div class="media room-item" data-room-id="<%= friendship.id %>">
+  <div class="media-left">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= friendship.friend.username %> 
+      <span class="badge">
+        < room_unread_messages(room) %>
+      </span>
+    </h4>
+  </div>
+  </div>
+<% end %>

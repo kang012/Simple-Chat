@@ -1,0 +1,13 @@
+<section class="room">
+  <div class="container">
+    <h2 class="text-center">Your Friends</h2>
+
+    <div class="list-group">
+      <%= render @friendships %>
+    </div>
+
+    <div class="room-control">
+      <%= link_to 'Add Room', new_room_path, class: 'btn btn-success' %>
+    </div>
+  </div>
+</section>

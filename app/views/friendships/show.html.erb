@@ -1,0 +1,28 @@
+<section class="room-chat">
+<div class="container">
+
+<div class="room-info">
+  <h2><%= @friendship.friend.username %></h2>
+</div>
+
+<div class="message-area">
+  <% @messages.each do |message| %>
+    <%= render 'friendships/message', message: message, current_user: current_user.id %>
+  <% end %>
+</div>
+
+<div class="friend-message-form">
+  <%= form_for @message, url: friendships_friend_messages_path(friendship_id: @friendship.id, user_id: current_user.id), remote: true, authencity_token: true do |f| %>
+    <div class="form-group">
+      <%= f.text_area :content, class: 'form-control', placeholder: 'Message...' %>
+    </div>
+  <% end %>
+</div>
+
+</div>
+<%= hidden_field_tag :friendship_id, @friendship.id, id: 'friendship-id' %>
+<%= hidden_field_tag :first_message_id, @messages&.first&.id, id: 'first-message-id' %>
+<script>
+  window.userId = <%= current_user.id %>
+</script>
+</section>

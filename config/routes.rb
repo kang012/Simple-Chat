@@ -18,7 +18,12 @@ Rails.application.routes.draw do
       collection { get 'old/:first_message_id' => 'messages#old', constraints: { first_message_id: /\d+/ } }
     end
   end
-
+  resource :friendships do 
+    resources :friend_messages, only: %i(create destroy) do
+      collection { get 'old/:first_message_id' => 'messages#old', constraints: { first_message_id: /\d+/ } }
+    end
+  end
+  get 'friends', to: 'friendships#index'
   root to: 'rooms#index'
 
   mount ActionCable.server => '/cable'

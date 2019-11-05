@@ -29,6 +29,9 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :rooms, through: :messages
+  has_many :friend_messages
+  has_many :friendships
+  has_many :friends, through: :friendships
 
   validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 64 }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
